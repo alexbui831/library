@@ -9,6 +9,30 @@
 </head>
 
 <body>
+    <div id="container">
+        <h1>Library</h1>
+
+        <form class="form">
+            <h4>Add Book</h4>
+            <div class="form-box">
+                <label for='title'>Title:</label> 
+                <input id="title" name="title" type='text'>
+            </div>
+            <div class="form-box">
+                <label for="author">Author:</label>
+                <input id="author" name="author" type='text'>
+            </div>
+            <div class="form-box">
+                <label for="yes">Book Read?</label>
+                <input id="yes" type="radio" name="choice" value="yes">
+            </div>
+
+            <button type="submit" id="submit-btn">Add Book</button>
+        </form>
+
+        <div id="error"></div>
+        <ul id="bookList"></ul>
+    </div>
 </body>
 
 
