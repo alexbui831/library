@@ -1,70 +1,58 @@
 let library = [
-    {title:"Lord of the Rings", author:"J.R.R. Tolkien", read:"Read"},
-    {title:"Pokemon", author: "Ash Ketchum", read:"Read"},
-    {title:"Harry Potter", author:"JK Rowling", read:"Not Read"}
+    {title:"Lord of the Rings", author:"J.R.R. Tolkien", status:"Read"},
+    {title:"Pokemon", author: "Ash Ketchum", status:"Read"},
+    {title:"Harry Potter", author:"JK Rowling", status:"Not Read"}
 ];
 
-//  prints book + adds button next to each segment
-let str = ''
-let i = 0
-library.forEach(element => {
-    str += '<li>' + element.title + " " + element.author + " " + element.read + " <button class='remove'>Remove</button></li>"
-});
+const title = document.querySelector("#title");
+const author = document.querySelector("#author");
+const stat = document.querySelector("#status");
+const form = document.querySelector("form");
 
-document.getElementById("bookList").innerHTML = str;
+class Book {
+    constructor(title, author, status) {
+        this.title = title;
+        this.author = author;
+        this.status = status;
+    }
+}
 
 //  book adding form function
 let addBookToLibrary = (e) => {
     e.preventDefault(); //  stops form from refreshing page
-    
-    const title = document.getElementById("title");
-    const author = document.getElementById("author");
-    const choice = document.getElementById("yes");
 
-    //  checks if read choice is selected or not
-    if(choice.checked) { 
-        console.log("Read")
-
-        let book = {
-            title: document.getElementById("title").value,
-            author: document.getElementById("author").value,
-            read: "Read"
-        };
-
-        library.push(book);
+    //  checks if user added input values
+    if(!title.value || !author.value) {
+        alert("Please Fill In All Fields");
+        return false;
     }
-    
-    else {
-        console.log("Not Read")
 
-        let book = {
-            title: document.getElementById("title").value,
-            author: document.getElementById("author").value,
-            read: "Not Read"
-        };
-
-        library.push(book);
-    };
+    const newBook = new Book(title.value, author.value, stat.value);
+    library.push(newBook);
 
     let str = ''
     let i = 0
     library.forEach(element => {
-        str += '<li>' + element.title + " " + element.author + " " + element.read + " <button class='removeBtn'>Remove</button></li>"
+        str += '<li>' + element.title + " " + element.author + " " + element.status + " <button class='removeBtn'>Remove</button></li>"
     });
 
     document.getElementById("bookList").innerHTML = str;
     document.querySelector("form").reset(); //  resets inputs
 };
 
+
+
+//  prints book + adds button next to each segment
+let str = ''
+let i = 0
+library.forEach(element => {
+    str += '<li>' + element.title + " " + element.author + " " + element.status + " <button class='remove'>Remove</button></li>"
+});
+
+document.getElementById("bookList").innerHTML = str;
+
+
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("submit-btn").addEventListener("click", addBookToLibrary);
 });
-
-
-//  remove book button function
-let removeBook = (e) => {
-    console.log("remove")
-}
-
-const bookList = document.getElementById("bookList");
 

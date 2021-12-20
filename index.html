@@ -23,8 +23,10 @@
                 <input id="author" name="author" type='text'>
             </div>
             <div class="form-box">
-                <label for="yes">Book Read?</label>
-                <input id="yes" type="radio" name="choice" value="yes">
+                <select name="status" id="status">
+                    <option value = "Read">Read</option>
+                    <option value = "Not Read">Not Read</option>
+                </select>
             </div>
 
             <button type="submit" id="submit-btn">Add Book</button>
