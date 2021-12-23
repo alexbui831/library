@@ -8,6 +8,7 @@ const title = document.querySelector("#title");
 const author = document.querySelector("#author");
 const stat = document.querySelector("#status");
 const form = document.querySelector("form");
+const table = document.querySelector("#table");
 
 class Book {
     constructor(title, author, status) {
@@ -30,29 +31,23 @@ let addBookToLibrary = (e) => {
     const newBook = new Book(title.value, author.value, stat.value);
     library.push(newBook);
 
-    let str = ''
-    let i = 0
+    let str = '<tr><th>Title</th><th>Author</th><th>Status</th></tr>'
     library.forEach(element => {
-        str += '<li>' + element.title + " " + element.author + " " + element.status + " <button class='removeBtn'>Remove</button></li>"
+        str += '<tr><td>' + element.title + "</td><td>" + element.author + "</td><td>" + element.status + "</td><td><button class='remove'>Remove</button></td></tr>"
     });
 
-    document.getElementById("bookList").innerHTML = str;
+    table.innerHTML = str;
     document.querySelector("form").reset(); //  resets inputs
 };
 
-
-
 //  prints book + adds button next to each segment
-let str = ''
-let i = 0
+let str = '<tr><th>Title</th><th>Author</th><th>Status</th></tr>'
 library.forEach(element => {
-    str += '<li>' + element.title + " " + element.author + " " + element.status + " <button class='remove'>Remove</button></li>"
+    str += '<tr><td>' + element.title + "</td><td>" + element.author + "</td><td>" + element.status + "</td><td><button class='remove'>Remove</button></td></tr>"
 });
 
-document.getElementById("bookList").innerHTML = str;
-
+table.innerHTML = str;
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("submit-btn").addEventListener("click", addBookToLibrary);
 });
-
