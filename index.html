@@ -12,27 +12,28 @@
     <div id="header">
         <h1>LIBRARY APP</h1>
     </div>
-    <div id="form-content">
-        <form class="form">
-            <h4>Add Book</h4>
-            <div class="form-box">
-                <label for='title'>Title:</label> 
+    <h4>Add Book</h4>
+    <form class="form-container">
+        <div class="item1-container">
+            <div class="title-entry">
+                <label for='title'>Title</label> 
                 <input id="title" name="title" type='text'>
             </div>
-            <div class="form-box">
-                <label for="author">Author:</label>
+            <div class="author-entry">
+                <label for="author">Author</label>
                 <input id="author" name="author" type='text'>
             </div>
-            <div class="form-box">
+        </div>
+        <div class="item2-container">
+            <div class="status-entry">
                 <select name="status" id="status">
                     <option value = "Read">Read</option>
                     <option value = "Not Read">Not Read</option>
                 </select>
             </div>
-
-            <button type="submit" id="submit-btn">Add Book</button>
-        </form>
-    </div>
+        </div>
+        <button type="submit" id="submit-btn">Add Book</button>
+    </form>
     <table id="table">
     </table>
 </body>

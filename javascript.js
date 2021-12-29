@@ -33,7 +33,7 @@ let addBookToLibrary = (e) => {
 
     let str = '<tr><th>Title</th><th>Author</th><th>Status</th></tr>'
     library.forEach(element => {
-        str += '<tr><td>' + element.title + "</td><td>" + element.author + "</td><td>" + element.status + "</td><td><button class='remove'>Remove</button></td></tr>"
+        str += '<tr><td>' + element.title + "</td><td>" + element.author + "</td><td>" + element.status + "</td><td><button class='remove'>x</button></td></tr>"
     });
 
     table.innerHTML = str;
@@ -43,7 +43,7 @@ let addBookToLibrary = (e) => {
 //  prints book + adds button next to each segment
 let str = '<tr><th>Title</th><th>Author</th><th>Status</th></tr>'
 library.forEach(element => {
-    str += '<tr><td>' + element.title + "</td><td>" + element.author + "</td><td>" + element.status + "</td><td><button class='remove'>Remove</button></td></tr>"
+    str += '<tr><td>' + element.title + "</td><td>" + element.author + "</td><td>" + element.status + "</td><td><button class='remove'>X</button></td></tr>"
 });
 
 table.innerHTML = str;
